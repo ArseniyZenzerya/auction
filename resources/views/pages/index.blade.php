@@ -5,16 +5,16 @@
 <div class="main_section"> 
     <div class="product-photo">
         <div class="slide active">
-            <img src="http" height=484 width=700 >
+            <img src="{{ asset("/images/products/picture1.png") }}" height=484 width=700 >
         </div>
         <div class="slide">
-            <img src="" height=484 width=700 >
+            <img src="{{ asset("/images/products/picture2.png") }}" height=484 width=700 >
         </div>
         <div class="slide">
-            <img src="" height=484 width=700 >
+            <img src="{{ asset("/images/products/picture3.png") }}" height=484 width=700 >
         </div>
         <div class="slide">
-            <img src="" height=484 width=700 >
+            <img src="{{ asset("/images/products/picture4.png") }}" height=484 width=700 >
         </div>
         <div class="btn-prev" id="btn-prev">
             <img src="{{ asset("/images/icons/arrow_left.png") }}">
@@ -22,6 +22,7 @@
         <div class="btn-next" id="btn-next">
             <img src="{{ asset("/images/icons/arrow_right.png")}}">
         </div>
+
     </div>
     <section class="container">
         <div class="text">
@@ -58,11 +59,8 @@
 
 
 @pushonce('scripts')
- <script>
+  <script src="../js/slider.js"></script>
 
-
-
- </script>
 @endpushonce
 
 @pushOnce('css')
@@ -76,19 +74,30 @@
             height: 56px;
             border: 2px solid #69C0FF;
             margin-top: 18px;
+            display: flex;
+            padding: 0px 24px;
+            flex-direction: column;
+            align-items: flex-start;
+            align-self: stretch;
         }
 
         .data {
             background: #E6F7FF;
             width: 672px;
-            height: 56px;
+            height: 110px;
             border: 2px solid #69C0FF;
+            padding: 0px 24px;
+        }
+
+        .text {
+        
+            padding-top: 99px
         }
 
         .price {
             background: #E6F7FF;
             width: 672px;
-            height: 56px;
+            height: 134px;
             border: 2px solid #69C0FF;
             margin-top: 18px;
         }
@@ -96,7 +105,7 @@
         .number {
             background: #E6F7FF;
             width: 672px;
-            height: 56px;
+            height: 88px;
             border: 2px solid #69C0FF;
             margin-top: 18px;
         }
@@ -111,7 +120,12 @@
             align-items: center;
             justify-content: center;
         
-  }
+         }
+
+         .product_photo {
+            margin-left: 36px;
+            margin-top: 99px;
+         }
     </style>
 
 @endPushOnce
