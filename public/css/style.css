@@ -38,6 +38,11 @@ body, dl, dt, dd, ul, ol, li, form, table, tr, td, h1, h2, h3, h4, h5, h6, pre, 
 	margin-right: auto;
 }
 
+:root {
+    --main-color: #E6F7FF;
+    --border-card-color: #69C0FF;
+}
+
 @media (max-width: 1300px) {
 	:root {
 		--column-width: 750px;

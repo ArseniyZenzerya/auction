@@ -15,15 +15,14 @@
   .input-search {
     width: 439px;
     height: 40px;
-    padding: auto;
   }
-  
+
   .button {
     background: #2196F3;
     padding: 12px 16px;
     border-radius: 100px;
     color: #fff;
-    border: none;   
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,10 +32,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    background: #E6F7FF;
-    height: 72px
-    width 100%;
+    background: var(--main-color);
+    height: 72px;
+    width: 100%;
     padding: 12px 36px;
   }
 
@@ -51,9 +49,9 @@
     margin-left: 32px;
     border-radius: 100%;
     border: 1px solid #D9D9D9;
-  
+
   }
-  
+
   .right-menu{
     display: flex;
   }

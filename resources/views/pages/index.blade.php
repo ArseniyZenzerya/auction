@@ -129,9 +129,9 @@
                 }
 
                 .card {
-                    background: #E6F7FF;
+                    background: var(--main-color);
                     width: 100%;
-                    border: 1px solid #69C0FF;
+                    border: 1px solid var(--border-card-color);
                     margin-bottom: 18px;
                     display: flex;
                     flex-direction: column;
@@ -149,7 +149,7 @@
 
                 .card-time-expire{
                     width: 100%;
-                    border-top: 1px solid #69C0FF;
+                    border-top: 1px solid var(--border-card-color);
                 }
                 .price {
                     margin-top: 24px;
