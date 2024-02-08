@@ -18,11 +18,13 @@
                 <div class="card">
                     <div class="card-time padding-card"><b>Auction Ends:</b> 15.03.24, at 11:24 EET</div>
                     <div class="card-time-expire padding-card">
+{{--                        TODO: add font-size, where is it need--}}
                         <p>1 Day, 11:24:03</p>
                         <p>till end</p>
                     </div>
                 </div>
                 <div class="card padding-card">
+                    {{--                        TODO: add font-size, where is it need--}}
                     <p>Actual Price <a href="">(12 bids)</a></p>
                     <p class="price">4.002 UAH</p>
                 </div>
