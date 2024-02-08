@@ -1,53 +1,60 @@
 <header class="container header">
-    <div>
-        <img src="{{asset('images/siteImages/logo.svg')}}" alt="Логотип" class="logo">
-    </div>
-    <div class="header-info">
-        <nav>
-            <div><a href="">Наші роботи</a></div>
-            <div><a href="">Каталог</a></div>
-        </nav>
-        <div class="contacts">
-            <div><a href="tel:+380669178126">+380669178126</a></div>
-            <div><a href="tel:+380966293442">+380966293442</a></div>
-        </div>
-    </div>
+
+<img src="" alt="" class="logo">
+
+ <input class='input-search' name="input" type="text" placeholder="Search an item?" />
+
+<div class="right-menu">
+  <div class="button">Create auction</div>
+  <div class="profile-button"><img src="{{asset('/images/logo.svg')}}" alt=""></div>
+</div>
+
 </header>
 
 <style>
-    header {
-        height: 63px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 50px;
-    }
+  .input-search {
+    width: 439px;
+    height: 40px;
+    padding: auto;
+  }
+  
+  .button {
+    background: #2196F3;
+    padding: 12px 16px;
+    border-radius: 100px;
+    color: #fff;
+    border: none;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .logo {
-        width: 70px;
-        height: 54px;
-    }
+  header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    nav {
-        display: flex;
-    }
+    background: #E6F7FF;
+    height: 72px
+    width 100%;
+    padding: 12px 36px;
+  }
 
-    nav div {
-        margin-left: 70px;
-    }
+  .logo{
+    width: 150px
+  }
 
-    .contacts {
-        display: flex;
-    }
-
-    .contacts div a {
-        margin-left: 70px;
-        color: #F18119;
-    }
-
-    .header-info {
-        display: flex;
-        font-size: 20px;
-        font-family: 'Neue Machina Regular';
-    }
+  .profile-button{
+    background: #fff;
+    width: 48px;
+    height: 48px;
+    margin-left: 32px;
+    border-radius: 100%;
+    border: 1px solid #D9D9D9;
+  
+  }
+  
+  .right-menu{
+    display: flex;
+  }
 </style>

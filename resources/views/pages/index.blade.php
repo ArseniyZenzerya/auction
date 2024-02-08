@@ -2,12 +2,50 @@
 
 
 @section('content')
-    <section class="index-page-body container">
-        <div class="index-text">
-            <div class="index-text-bigger">Металоконструкції в Запоріжжі
-                <span class="index-text-smaller">будь-якої складності</span>
-            </div>
+<div class="main_section"> 
+    <div class="product-photo">
+        <div class="slide active">
+            <img src="http" height=484 width=700 >
         </div>
+        <div class="slide">
+            <img src="" height=484 width=700 >
+        </div>
+        <div class="slide">
+            <img src="" height=484 width=700 >
+        </div>
+        <div class="slide">
+            <img src="" height=484 width=700 >
+        </div>
+        <div class="btn-prev" id="btn-prev">
+            <img src="{{ asset("/images/icons/arrow_left.png") }}">
+        </div>
+        <div class="btn-next" id="btn-next">
+            <img src="{{ asset("/images/icons/arrow_right.png")}}">
+        </div>
+    </div>
+    <section class="container">
+        <div class="text">
+            <h2>Painted 155mm Shell to M-777 Howitzer</h2>
+        </div>
+
+        <div class="card">
+        Auction Ends: 15.03.24, at 11:24 EET
+        </div>
+
+        <div class="data">
+        1 Day, 11:24:03
+        till end
+        </div>
+
+        <div class="price">
+            actual price 4000 uah
+        </div>
+
+        <div class="number">
+            button input number
+            <div class="button_number">Confirm bid</div>
+        </div>
+
     </section>
 @endsection
 
@@ -20,29 +58,60 @@
 
 
 @pushonce('scripts')
+ <script>
 
+
+
+ </script>
 @endpushonce
+
 @pushOnce('css')
     <style>
-        .index-text {
-            font-family: 'Neue Machina Regular';
+        .main_section {
             display: flex;
         }
-
-        .index-page-body {
-            margin-top: 100px;
+        .card {
+            background: #E6F7FF;
+            width: 672px;
+            height: 56px;
+            border: 2px solid #69C0FF;
+            margin-top: 18px;
         }
 
-        .index-text-bigger {
-            font-size: 96px;
-            font-weight: 700;
+        .data {
+            background: #E6F7FF;
+            width: 672px;
+            height: 56px;
+            border: 2px solid #69C0FF;
         }
 
-        .index-text-smaller {
-            font-size: 40px;
-            font-weight: 400;
-            color: #F18119;
+        .price {
+            background: #E6F7FF;
+            width: 672px;
+            height: 56px;
+            border: 2px solid #69C0FF;
+            margin-top: 18px;
         }
+
+        .number {
+            background: #E6F7FF;
+            width: 672px;
+            height: 56px;
+            border: 2px solid #69C0FF;
+            margin-top: 18px;
+        }
+
+        .button_number {
+            background: #2196F3;
+            padding: 12px 16px;
+            border-radius: 100px;
+            color: #fff;
+            border: none;   
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        
+  }
     </style>
 
 @endPushOnce
