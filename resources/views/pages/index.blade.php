@@ -32,7 +32,7 @@
         </div>
         <div class="details">
             <h3 class="header-block">Details</h3>
-{{--            Dasha zagugli pls v html est` block kotoriy c vkladkami tipo i vstav syda --}}
+{{--        TODO:    Dasha zagugli pls v html est` block kotoriy c vkladkami tipo i vstav syda --}}
         </div>
         <div class="comments">
             <h3 class="header-block">Comments <span>2</span></h3>
