@@ -24,6 +24,7 @@
         </div>
 
     </div>
+
     <section class="container">
         <div class="text">
             <h2>Painted 155mm Shell to M-777 Howitzer</h2>
@@ -46,8 +47,16 @@
             button input number
             <div class="button_number">Confirm bid</div>
         </div>
-
+        <div class="details">
+        <h3>Details</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga et a obcaecati eos veniam odit eum, quibusdam aspernatur accusamus quos tempora, nemo nisi quasi dolorum vel voluptate excepturi nulla. Voluptatum?</p>
+        </div>
+        <div class="comments">
+        <h3>Comments</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga et a obcaecati eos veniam odit eum, quibusdam aspernatur accusamus quos tempora, nemo nisi quasi dolorum vel voluptate excepturi nulla. Voluptatum?</p>
+        </div>
     </section>
+  
 @endsection
 
 
@@ -126,6 +135,8 @@
             margin-left: 36px;
             margin-top: 99px;
          }
+
+
     </style>
 
 @endPushOnce
