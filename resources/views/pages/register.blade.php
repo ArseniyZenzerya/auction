@@ -4,30 +4,46 @@
 @section('content')
     <section class="container center">
         <div class="login">
-            <h3>User login</h3>
-            <form action="" class="login-form">
-                <div class="column mb25">
-                    <label for="">
-                        Email
-                    </label>
-                    <input type="email">
+            <h3>Create an account</h3>
+            <form action="{{route('api.register')}}" method="POST" class="login-form">
+                @csrf
+                <div class="column">
+                    <label for="">Email</label>
+                    <input type="email" name="email">
+                    @error('email')
+                    {{$message}}
+                    @enderror
                 </div>
-
-                <div class="column mb25">
-                    <label for="">
-                        Password
-                    </label>
-                    <input type="password">
+                <div class="column">
+                    <label for="">Password</label>
+                    <input type="password" name="password">
+                    @error('password')
+                    {{$message}}
+                    @enderror
                 </div>
-                <div class="mb25">
-                    <input type="checkbox">
-                    <label for="">
-                        Remember me
-                    </label>
+                <div class="column">
+                    <label for="">Name</label>
+                    <input type="text" name="name">
+                    @error('name')
+                    {{$message}}
+                    @enderror
+                </div><div class="column">
+                    <label for="">Surname</label>
+                    <input type="text" name="surname">
+                    @error('surname')
+                    {{$message}}
+                    @enderror
                 </div>
-                <div class="column center mb25">
-                    <p>Don`t have account</p>
-                    <a href="">Register</a>
+                <div class="column">
+                    <label for="">Input password once more</label>
+                    <input type="password" name="password_confirmation">
+                    @error('passConfirmed')
+                    {{$message}}
+                    @enderror
+                </div>
+                <div class="column center">
+                    <p>Already have an account?</p>
+                    <a href="">Login</a>
                 </div>
                 <input type="submit" class="button">
             </form>
@@ -77,6 +93,10 @@
             flex-direction: column;
         }
 
+        .login-form > div {
+            margin-bottom: 25px;
+        }
+
         .column {
             width: 100%;
             display: flex;
@@ -87,9 +107,6 @@
             margin-bottom: 8px;
         }
 
-        .mb25 {
-            margin-bottom: 25px;
-        }
     </style>
 
 @endPushOnce

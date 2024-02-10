@@ -5,27 +5,21 @@
     <section class="container center">
         <div class="login">
             <h3>User login</h3>
-            <form action="" class="login-form">
-                <div class="column mb25">
-                    <label for="">
-                        Email
-                    </label>
-                    <input type="email">
+            <form action="{{route('api.login')}}" method="POST" class="login-form">
+                @csrf
+                <div class="column">
+                    <label for="">Email</label>
+                    <input type="email" name="email">
                 </div>
-
-                <div class="column mb25">
-                    <label for="">
-                        Password
-                    </label>
-                    <input type="password">
+                <div class="column">
+                    <label for="">Password</label>
+                    <input type="password" name="password">
                 </div>
-                <div class="mb25">
+                <div>
                     <input type="checkbox">
-                    <label for="">
-                        Remember me
-                    </label>
+                    <label for="">Remember me</label>
                 </div>
-                <div class="column center mb25">
+                <div class="column center">
                     <p>Don`t have account</p>
                     <a href="">Register</a>
                 </div>
@@ -77,6 +71,10 @@
             flex-direction: column;
         }
 
+        .login-form > div {
+            margin-bottom: 25px;
+        }
+
         .column {
             width: 100%;
             display: flex;
@@ -87,9 +85,6 @@
             margin-bottom: 8px;
         }
 
-        .mb25 {
-            margin-bottom: 25px;
-        }
     </style>
 
 @endPushOnce
