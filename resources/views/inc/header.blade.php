@@ -5,7 +5,9 @@
     <input class='input-search' name="input" type="text" placeholder="Search an item?"/>
 
     <div class="right-menu">
-        <div class="button">Create auction</div>
+        <a href="{{route('createFirstStep')}}">
+            <div class="button">Create auction</div>
+        </a>
         @auth('web')
             <a href="{{route('api.logout')}}">
                 <div>Logout</div>
