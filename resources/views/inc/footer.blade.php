@@ -1,12 +1,13 @@
 <footer class="footer">
     <div class="footer-wrap">
-        <img src="" alt="" class="logo">
-    </div>
-    <div class="text">
-        <h2>Created with love and lot of caffeine by SLAY!ers</h2>
-    </div>
-    <div class="data">
-        <h3>2024</h3>
+        <img src="{{asset('images/icons/logo.svg')}}" alt="" class="logo">
+
+        <div class="text">
+            <h2>Created with love and lot of caffeine by SLAY!ers</h2>
+        </div>
+        <div class="data">
+            <h3>2024</h3>
+        </div>
     </div>
 </footer>
 
@@ -19,10 +20,9 @@
         height: 72px;
         width: 100%;
         padding: 12px 36px;
+        margin-top: 100px;
     }
-    .logo {
-        width: 150px
-    }
+
 
     .footer-wrap{
         display: flex;
@@ -30,5 +30,9 @@
         padding-left: var(--offset);
         padding-right: var(--offset);
         justify-content: space-between;
+    }
+
+    .text{
+        color: rgba(0,0,0,0.25);
     }
 </style>

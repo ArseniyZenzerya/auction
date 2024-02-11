@@ -2,6 +2,7 @@
 
     use App\Http\Controllers\AuctionController;
     use App\Http\Controllers\AuthController;
+    use App\Http\Controllers\ChatController;
     use Illuminate\Support\Facades\Route;
 
 
@@ -27,5 +28,13 @@
 
     Route::get('/product/{auction:id}', [AuctionController::class, 'getProduct'])->name('product');
 
+    Route::post('/add/bid/{auction:id}', [AuctionController::class, 'addBid'])->name('addBid');
+
+    Route::get('/list/bid/{auction:id}', [AuctionController::class, 'listBid'])->name('listBid');
+
+    Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
+    Route::post('/chat/{auction:id}', [ChatController::class, 'store'])->name('chat.store');
+
+    Route::post('/edit/{auction:id}', [AuctionController::class, 'editAuction'])->name('edit.auction');
 
     Route::get('/', [AuctionController::class, 'getAllNotExpired'])->name('index');

@@ -10,9 +10,18 @@
             'title', 'description', 'start_price', 'start_time', 'end_time', 'user_id'
         ];
 
-        // Correcting the method name to use the plural form "photos"
         public function photos()
         {
             return $this->hasMany(Photo::class);
+        }
+
+        public function bids()
+        {
+            return $this->hasMany(Bid::class);
+        }
+
+        public function messages()
+        {
+            return $this->hasMany(Message::class);
         }
     }

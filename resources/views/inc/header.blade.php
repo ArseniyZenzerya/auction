@@ -1,28 +1,23 @@
 <header class="header">
 
     <div class="header-wrap">
-        <img src="" alt="" class="logo">
-
-        <input class='input-search' name="input" type="text" placeholder="Search an item?"/>
+        <a href="{{route('index')}}">
+            <img src="{{asset('images/icons/logo.svg')}}" alt="" class="logo">
+        </a>
 
         <div class="right-menu">
             @auth('web')
-
                 <a href="{{route('viewCreateFirstStep')}}">
                     <div class="button">Create auction</div>
                 </a>
-                <a href="{{route('api.logout')}}">
-                    <div>Logout</div>
-                </a>
-
-            <div class="dropdown">
-                <div class="profile-button"><img src="{{asset('/images/logo.svg')}}" alt=""></div>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                <div class="dropdown">
+                    <div class="profile-button"><img src="{{asset('/images/logo.svg')}}" alt=""></div>
+                    <div class="dropdown-content">
+                        <a href="{{route('api.logout')}}">
+                            <div>Logout</div>
+                        </a>
+                    </div>
                 </div>
-            </div>
             @endauth
             @guest('web')
                 <a href="{{route('login')}}">
@@ -78,51 +73,54 @@
 
     .right-menu {
         display: flex;
+        align-items: center;
     }
 
-    .header-wrap{
+    .header-wrap {
         display: flex;
+        align-items: center;
         width: 100%;
         padding-left: var(--offset);
         padding-right: var(--offset);
         justify-content: space-between;
     }
 
-.profile-button {
-    padding: 30px;
-    cursor: pointer;
-}
+    .profile-button {
+        padding: 30px;
+        cursor: pointer;
+    }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
+    .dropdown-content {
+        left: 30px;
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
 
-.dropdown-content a:hover {
-    background-color: #f1f1f1
-}
+    .dropdown-content a:hover {
+        background-color: #f1f1f1
+    }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
 
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
-}
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    }
 </style>

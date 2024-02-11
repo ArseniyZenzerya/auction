@@ -2,6 +2,8 @@
 
     namespace App\Http\Controllers;
 
+    use App\Models\Message;
+    use App\Models\Bid;
     use App\Models\Auction;
     use Illuminate\Http\Request;
     use Illuminate\Support\Carbon;
@@ -107,16 +109,66 @@
 
         public function getProduct(Auction $auction)
         {
-            $startTime = Carbon::parse($auction->start_time);
             $endTime = Carbon::parse($auction->end_time);
 
-            $duration = $endTime->diff($startTime);
+            $duration = $endTime->diff(now());
 
             $formattedDuration = $duration->format('%a Day, %H:%I:%S');
             $auction->formatted_duration = $formattedDuration;
 
             $photos = $auction->photos;
+            $bids = $auction->bids;
 
-            return view('pages.product')->with(['product' => $auction, 'photos' => $photos]);
+            $messages = Message::where('auction_id', $auction->id)->get();
+
+            return view('pages.product')->with([
+                'product' => $auction,
+                'photos' => $photos,
+                'bids' => $bids,
+                'messages' => $messages,
+            ]);
         }
+
+
+
+        public function addBid(Auction $auction, Request $request)
+        {
+            $amount = $request->get('amount');
+            $maxBid = $auction->bids()->max('amount');
+
+            if ($maxBid !== null && $amount <= $maxBid) {
+                return redirect()->route('product', ['auction' => $auction])
+                    ->withErrors(['amount' => 'Bid must be higher than the current maximum bid.'])
+                    ->withInput();
+            }
+
+            if ($amount < $auction->start_price) {
+                return redirect()->route('product', ['auction' => $auction])
+                    ->withErrors(['amount' => 'Bid must be greater than or equal to the starting price.'])
+                    ->withInput();
+            }
+
+            $bid = new Bid([
+                'auction_id' => $auction->id,
+                'user_id' => auth()->id(),
+                'amount' => $amount,
+            ]);
+
+            $bid->save();
+
+            return redirect()->route('product', ['auction' => $auction])
+                ->with('success', 'Bid added successfully.');
+        }
+
+
+
+        public function listBid(Auction $auction)
+        {
+            $bids = $auction->bids()->latest()->with('user')->get();
+
+            return view('pages.listBids')->with(['auction' => $auction, 'bids' => $bids]);
+        }
+
+
+
     }
