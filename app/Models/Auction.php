@@ -24,4 +24,9 @@
         {
             return $this->hasMany(Message::class);
         }
+
+        public function user()
+        {
+            return $this->belongsTo(User::class);
+        }
     }
