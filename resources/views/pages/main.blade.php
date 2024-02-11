@@ -3,36 +3,43 @@
 
 @section('content')
     <section class="container">
-        <div class="name">
-            <h1>All lots</h1>
-        </div>
-        <div class="row">
-        @foreach($auctions as $auction)
-            <a href="{{route('product', ['auction' => $auction->id])}}">
-                <div>
-                    <div class="title">
-                        <h2>{{$auction->title}}</h2>
-                    </div>
-                    <div class="img-box">
-                        <img src="./images/products/product.png" class="img-box__img">
-                    </div>
-                    <div class="content">
-                        <h3 class="title">{{$auction->start_price}} UAH</h3>
-                        <p class="data">ends in 1 day </p>
-                    </div>
+        <div class="main-bl">
+            <div class="sorting">
+
+            </div>
+            <div>
+                <div class="name">
+                    <h1>All lots</h1>
                 </div>
-            </a>
-        @endforeach
-        </div>
-        <div class="pagination">
-            <a href="#">❮</a>
-            <a href="#">1</a>
-            <a class="active" href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">❯</a>
+                <div class="main-blocks">
+                    @foreach($auctions as $auction)
+                        <a href="{{route('product', ['auction' => $auction->id])}}">
+                            <div class="card">
+                                <div class="title">
+                                    <h2>{{$auction->title}}</h2>
+                                </div>
+                                <div class="img-box">
+                                    <img src="{{ asset('storage/' . $auction->photos[0]->url) }}" class="img-box__img">
+                                </div>
+                                <div class="content">
+                                    <h3 class="title">{{$auction->start_price}} UAH</h3>
+                                    <p class="data">ends in 1 day </p>
+                                </div>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+{{--                <div class="pagination">--}}
+{{--                    <a href="#">❮</a>--}}
+{{--                    <a href="#">1</a>--}}
+{{--                    <a class="active" href="#">2</a>--}}
+{{--                    <a href="#">3</a>--}}
+{{--                    <a href="#">4</a>--}}
+{{--                    <a href="#">5</a>--}}
+{{--                    <a href="#">6</a>--}}
+{{--                    <a href="#">❯</a>--}}
+{{--                </div>--}}
+            </div>
         </div>
     </section>
 @endsection
@@ -56,27 +63,19 @@
     margin-bottom: 24px;
     }
 
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 42px 135px 41px ;
-    text-align: center;
-}
 
-.row {
+.main-blocks {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -24px;
-
 }
 
 .card {
-    width: calc(33% - 24px);
-    margin-left: 24px;
+    margin-right: 10px;
+    width: 300px;
     display: inline-block;
     vertical-align: top;
     height: max-content;
-    border: 1px solid black;
+    border: 1px solid #F0F0F0;
     overflow: hidden;
     margin-bottom: 24px;
 }
@@ -163,6 +162,15 @@
 .pagination a.active {
     border-color: #1890FF
 
+}
+
+.sorting {
+    width: 200px;
+}
+
+.main-bl{
+    display: flex;
+    margin-top: 30px;
 }
 
 .pagination a:hover:not(.active) {background-color: #ddd;}

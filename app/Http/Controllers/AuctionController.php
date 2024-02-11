@@ -46,7 +46,7 @@
             if ($auction) {
                 if ($request->hasFile('photos')) {
                     foreach ($request->file('photos') as $photo) {
-                        $path = $photo->storeAs('public/photos', $photo->getClientOriginalName());
+                        $path = $photo->storeAs('photos', $photo->getClientOriginalName());
                         $auction->photos()->create(['url' => $path]);
                     }
                 }
@@ -98,6 +98,7 @@
         public function getAllNotExpired()
         {
             $activeAuctions = Auction::where('end_time', '>', Carbon::now())
+                ->with('photos')
                 ->get();
 
             return view('pages.main')->with(['auctions' => $activeAuctions]);
