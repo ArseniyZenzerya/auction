@@ -2,103 +2,39 @@
 
 
 @section('content')
-<section class="container">
+    <section class="container">
         <div class="name">
             <h1>All lots</h1>
         </div>
-    <div class="row">
-        <div class="card">
-            <div class="title">
-                <h2>Souvenir Coin “Fighter Jet - Su-27</h2>
-            </div>
-            <div class="img-box">
-                <img src="./images/products/product.png" class="img-box__img">
-            </div>
-            <div class="content">
-                <h3 class="title">320 UAH</h3>
-                <p class="data">ends in 1 day </p>
-            </div>
+        <div class="row">
+        @foreach($auctions as $auction)
+            <a href="{{route('product', ['auction' => $auction->id])}}">
+                <div>
+                    <div class="title">
+                        <h2>{{$auction->title}}</h2>
+                    </div>
+                    <div class="img-box">
+                        <img src="./images/products/product.png" class="img-box__img">
+                    </div>
+                    <div class="content">
+                        <h3 class="title">{{$auction->start_price}} UAH</h3>
+                        <p class="data">ends in 1 day </p>
+                    </div>
+                </div>
+            </a>
+        @endforeach
         </div>
-
-        <div class="card">
-            <div class="title">
-                <h2>Souvenir Coin “Fighter Jet - Su-27</h2>
-            </div>
-            <div class="img-box">
-                <img src="./images/products/product.png" class="img-box__img">
-            </div>
-            <div class="content">
-                <h3 class="title">320 UAH</h3>
-                <p class="data">ends in 1 day </p>
-            </div>
+        <div class="pagination">
+            <a href="#">❮</a>
+            <a href="#">1</a>
+            <a class="active" href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">❯</a>
         </div>
-
-        <div class="card">
-            <div class="title">
-                <h2>Souvenir Coin “Fighter Jet - Su-27</h2>
-            </div>
-            <div class="img-box">
-                <img src="./images/products/product.png" class="img-box__img">
-            </div>
-            <div class="content">
-                <h3 class="title">320 UAH</h3>
-                <p class="data">ends in 1 day </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="card">
-            <div class="title">
-                <h2>Souvenir Coin “Fighter Jet - Su-27</h2>
-            </div>
-            <div class="img-box">
-                <img src="./images/products/product.png" class="img-box__img">
-            </div>
-            <div class="content">
-                <h3 class="title">320 UAH</h3>
-                <p class="data">ends in 1 day </p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="title">
-                <h2>Souvenir Coin “Fighter Jet - Su-27</h2>
-            </div>
-            <div class="img-box">
-                <img src="./images/products/product.png" class="img-box__img">
-            </div>
-            <div class="content">
-                <h3 class="title">320 UAH</h3>
-                <p class="data">ends in 1 day </p>
-            </div>
-
-        </div>
-
-        <div class="card">
-            <div class="title">
-                <h2>Souvenir Coin “Fighter Jet - Su-27</h2>
-            </div>
-            <div class="img-box">
-                <img src="./images/products/product.png" class="img-box__img">
-            </div>
-            <div class="content">
-                <h3 class="title">320 UAH</h3>
-                <p class="data">ends in 1 day </p>
-            </div>
-        </div>
-    </div>
-    <div class="pagination">
-    <a href="#">❮</a>
-  <a href="#">1</a>
-  <a class="active" href="#">2</a>
-  <a href="#">3</a>
-  <a href="#">4</a>
-  <a href="#">5</a>
-  <a href="#">6</a>
-  <a href="#">❯</a>
-</div>
-</section>
+    </section>
 @endsection
 
 

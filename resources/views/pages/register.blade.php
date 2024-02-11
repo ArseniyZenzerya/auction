@@ -3,39 +3,33 @@
 
 @section('content')
     <section class="container center">
-        <div class="login">
+        <div class="register">
             <h3>Create an account</h3>
-            <form action="{{route('api.register')}}" method="POST" class="login-form">
+            <form action="{{route('api.register')}}" method="POST" class="register-form">
                 @csrf
                 <div class="column">
-                    <label for="">Email</label>
+                    <label for="email">Your Email</label>
                     <input type="email" name="email">
                     @error('email')
                     {{$message}}
                     @enderror
                 </div>
                 <div class="column">
-                    <label for="">Password</label>
+                    <label for="username">Your username</label>
+                    <input type="text" name="username">
+                    @error('name')
+                    {{$message}}
+                    @enderror
+                </div>
+                <div class="column">
+                    <label for="password">Create a password</label>
                     <input type="password" name="password">
                     @error('password')
                     {{$message}}
                     @enderror
                 </div>
                 <div class="column">
-                    <label for="">Name</label>
-                    <input type="text" name="name">
-                    @error('name')
-                    {{$message}}
-                    @enderror
-                </div><div class="column">
-                    <label for="">Surname</label>
-                    <input type="text" name="surname">
-                    @error('surname')
-                    {{$message}}
-                    @enderror
-                </div>
-                <div class="column">
-                    <label for="">Input password once more</label>
+                    <label for="password_confirmation">Input password once more</label>
                     <input type="password" name="password_confirmation">
                     @error('passConfirmed')
                     {{$message}}
@@ -43,9 +37,9 @@
                 </div>
                 <div class="column center">
                     <p>Already have an account?</p>
-                    <a href="">Login</a>
+                    <a href="{{route('login')}}">Login</a>
                 </div>
-                <input type="submit" class="button">
+                <input type="submit" value="Register" class="button btn-register">
             </form>
         </div>
     </section>
@@ -66,7 +60,7 @@
 
 @pushOnce('css')
     <style>
-        .login {
+        .register {
             margin-top: 140px;
             width: 300px;
             padding: 16px;
@@ -87,7 +81,7 @@
             justify-content: center;
         }
 
-        .login-form {
+        .register-form {
             display: flex;
             align-items: center;
             flex-direction: column;
@@ -105,6 +99,24 @@
 
         label {
             margin-bottom: 8px;
+        }
+
+        .btn-register{
+            width: 120px;
+        }
+
+        .register-form input{
+            padding: 8px 12px;
+        }
+
+        .register-form div{
+            margin-bottom: 25px;
+        }
+
+        .register h3{
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 25px;
         }
 
     </style>

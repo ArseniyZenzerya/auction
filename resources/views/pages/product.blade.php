@@ -2,6 +2,7 @@
 
 
 @section('content')
+
     <section class="container">
         <div class="breadcrumbs">
             <a href="" class="button-return"><img src="{{asset('/images/icons/arrow-left-bredcrums.svg')}}" alt=""></a>
@@ -11,15 +12,22 @@
         </div>
         <div class="product-main">
             <div class="slider-photo">
-
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        @foreach($photos as $photo)
+                            <div class="swiper-slide"><img src="{{asset($photo->url)}}"></div>
+                        @endforeach
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
             </div>
             <div class="product-desc">
-                <h2>Painted 155mm Shell to M-777 Howitzer</h2>
+                <h2>{{$product->title}}</h2>
                 <div class="card">
-                    <div class="card-time padding-card"><b>Auction Ends:</b> 15.03.24, at 11:24 EET</div>
+                    <div class="card-time padding-card"><b>Auction Ends: </b>{{$product->end_time}}</div>
                     <div class="card-time-expire padding-card">
 {{--                        TODO: add font-size, where is it need--}}
-                        <p>1 Day, 11:24:03</p>
+                        <p>{{$product->formatted_duration}}</p>
                         <p>till end</p>
                     </div>
                 </div>
@@ -34,7 +42,6 @@
         </div>
         <div class="details">
             <h3 class="header-block">Details</h3>
-{{--        TODO:    Dasha zagugli pls v html est` block kotoriy c vkladkami tipo i vstav syda --}}
         </div>
         <div class="comments">
             <h3 class="header-block">Comments <span>2</span></h3>
@@ -43,42 +50,6 @@
                 Voluptatum?</p>
         </div>
     </section>
-{{--        <div class="product-photo">--}}
-{{--            <div class="slide active">--}}
-{{--                <img src="{{ asset("/images/products/picture1.png") }}" height=484 width=700>--}}
-{{--            </div>--}}
-{{--            <div class="slide">--}}
-{{--                <img src="{{ asset("/images/products/picture2.png") }}" height=484 width=700>--}}
-{{--            </div>--}}
-{{--            <div class="slide">--}}
-{{--                <img src="{{ asset("/images/products/picture3.png") }}" height=484 width=700>--}}
-{{--            </div>--}}
-{{--            <div class="slide">--}}
-{{--                <img src="{{ asset("/images/products/picture4.png") }}" height=484 width=700>--}}
-{{--            </div>--}}
-{{--            <div class="btn-prev" id="btn-prev">--}}
-{{--                <img src="{{ asset("/images/icons/arrow_left.png") }}">--}}
-{{--            </div>--}}
-{{--            <div class="btn-next" id="btn-next">--}}
-{{--                <img src="{{ asset("/images/icons/arrow_right.png")}}">--}}
-{{--            </div>--}}
-
-{{--        </div>--}}
-{{--            <div class="details">--}}
-{{--                <h3>Details</h3>--}}
-{{--                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga et a obcaecati eos veniam odit eum,--}}
-{{--                    quibusdam aspernatur accusamus quos tempora, nemo nisi quasi dolorum vel voluptate excepturi nulla.--}}
-{{--                    Voluptatum?</p>--}}
-{{--            </div>--}}
-{{--            <div class="comments">--}}
-{{--                <h3>Comments</h3>--}}
-{{--                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga et a obcaecati eos veniam odit eum,--}}
-{{--                    quibusdam aspernatur accusamus quos tempora, nemo nisi quasi dolorum vel voluptate excepturi nulla.--}}
-{{--                    Voluptatum?</p>--}}
-{{--            </div>--}}
-{{--        </section>--}}
-{{--        --}}
-
         @endsection
 
 
@@ -90,8 +61,20 @@
 
 
         @pushonce('scripts')
-            <script src="{{asset("/js/slider.js")}}"></script>
-
+            <script>
+                var swiper = new Swiper(".mySwiper", {
+                    spaceBetween: 30,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    pagination: {
+                        el: ".swiper-pagination",
+                    },
+                    mousewheel: true,
+                    keyboard: true,
+                });
+            </script>
         @endpushonce
 
         @pushOnce('css')
@@ -120,6 +103,7 @@
 
                 .product-desc{
                     width: calc(100% - 556px);
+                    margin-left: 20px;
                 }
 
                 .product-desc h2{
@@ -173,6 +157,26 @@
                 .comments span{
                     color: rgba(0, 0, 0, 0.45);
                     margin-left: 10px;
+                }
+
+
+
+                .swiper{
+                    width: 100%;
+                    height: 100%;
+                    margin-right: 10px;
+                }
+                .swiper-slide{
+                    text-align: center;
+                    font-size: 18px;
+                    background-color: aliceblue;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .swiper-slide img{
+                    width: 90%;
+                    object-fit: cover;
                 }
 
             </style>

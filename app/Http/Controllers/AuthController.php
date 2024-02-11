@@ -20,15 +20,13 @@ class AuthController extends Controller
         $data = $request->validate([
             'email' => ['required', 'email', 'string', 'unique:users'],
             'password' => ['required', 'confirmed'],
-            'name' => ['required', 'string'],
-            'surname' => ['required', 'string']
+            'username' => ['required', 'string'],
         ]);
 
         $user = User::create([
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'name' => $data['name'],
-            'surname' => $data['surname'],
+            'username' => $data['username'],
         ]);
 
         if ($user) {

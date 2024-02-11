@@ -5,23 +5,22 @@
     <input class='input-search' name="input" type="text" placeholder="Search an item?"/>
 
     <div class="right-menu">
-        <a href="{{route('createFirstStep')}}">
+        @auth('web')
+
+        <a href="{{route('viewCreateFirstStep')}}">
             <div class="button">Create auction</div>
         </a>
-        @auth('web')
             <a href="{{route('api.logout')}}">
                 <div>Logout</div>
             </a>
+            <div class="profile-button"><img src="{{asset('/images/logo.svg')}}" alt=""></div>
+
         @endauth
         @guest('web')
             <a href="{{route('login')}}">
-                <div>Login</div>
+                <div class="button">Log In</div>
             </a>
-            <a href="{{route('register')}}">
-                <div>register</div>
-            </a>
-        @endguest
-        <div class="profile-button"><img src="{{asset('/images/logo.svg')}}" alt=""></div>
+         @endguest
     </div>
 
 

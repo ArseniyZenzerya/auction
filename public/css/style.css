@@ -55,3 +55,8 @@ body, dl, dt, dd, ul, ol, li, form, table, tr, td, h1, h2, h3, h4, h5, h6, pre, 
 	}
 }
 
+
+a{
+    text-decoration: none;
+}
+

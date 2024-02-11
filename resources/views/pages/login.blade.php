@@ -5,7 +5,7 @@
     <section class="container center">
         <div class="login">
             <h3>User login</h3>
-            <form action="{{route('api.login')}}" method="POST" class="login-form">
+            <form action="{{route('api.login')}}" method="POST" class="login-form" id="create-auction">
                 @csrf
                 <div class="column">
                     <label for="">Email</label>
@@ -15,15 +15,11 @@
                     <label for="">Password</label>
                     <input type="password" name="password">
                 </div>
-                <div>
-                    <input type="checkbox">
-                    <label for="">Remember me</label>
-                </div>
                 <div class="column center">
-                    <p>Don`t have account</p>
-                    <a href="">Register</a>
+                    <p>Don’t have account yet?</p>
+                    <a href="{{route('register')}}" class="register-link">Register</a>
                 </div>
-                <input type="submit" class="button">
+                <input type="submit" value="Login" class="button login-btn">
             </form>
         </div>
     </section>
@@ -85,6 +81,18 @@
             margin-bottom: 8px;
         }
 
+        input {
+            padding:  8px 12px;
+        }
+
+        .login-btn{
+            padding: 6px 15px;
+            width: 120px;
+        }
+
+        .register-link{
+            color: #1890FF;
+        }
     </style>
 
 @endPushOnce

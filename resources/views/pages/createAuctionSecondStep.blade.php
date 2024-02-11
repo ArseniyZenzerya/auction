@@ -2,21 +2,16 @@
 
 
 @section('content')
-    @include('inc.auth.status', ['step'=> 1])
+    @include('inc.auth.status', ['step'=> 2])
 
     <section class="container center">
         <div class="center">
-            <h3>What do you want to sell?</h3>
-            <form action="{{route('createFirstStep')}}" class="first-create" id="create-auction" method="post">
+            <h3>Cover photo</h3>
+            <form action="{{route('createSecondStep')}}" class="first-create" id="create-auction" method="post" enctype="multipart/form-data">
                 @csrf
-                <div>
-                    <label for="title">Title:</label>
-                    <input type="text" name="title">
-                </div>
-                <div>
-                    <label for="desc">Description:</label>
-                    <textarea name="desc" id="" cols="30" rows="4"></textarea>
-                </div>
+                <label for="photos">Photos:</label>
+                <input type="hidden" value="{{session('id')}}" name="id">
+                <input type="file" name="photos[]" id="photos" multiple>
             </form>
 
         </div>
