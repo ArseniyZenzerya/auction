@@ -11,7 +11,7 @@
                     <div class="button">Create auction</div>
                 </a>
                 <div class="dropdown">
-                    <div class="profile-button"><img src="{{asset('/images/logo.svg')}}" alt=""></div>
+                    <div class="profile-button"><img src="{{asset('/images/icons/IconCabinet.svg')}}" alt=""></div>
                     <div class="dropdown-content">
                         <a href="{{route('api.logout')}}">
                             <div>Logout</div>
@@ -34,6 +34,12 @@
     .input-search {
         width: 439px;
         height: 40px;
+    }
+
+    .profile-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .button {

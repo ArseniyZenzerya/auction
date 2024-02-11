@@ -99,8 +99,9 @@
 
         public function getAllNotExpired()
         {
-            $activeAuctions = Auction::where('end_time', '>', Carbon::now())
-                ->with('photos')
+            $activeAuctions = Auction::
+            //where('end_time', '>', Carbon::now())   TODO time solution
+                with('photos')
                 ->get();
 
             return view('pages.main')->with(['auctions' => $activeAuctions]);
@@ -110,14 +111,26 @@
         public function getProduct(Auction $auction)
         {
             $endTime = Carbon::parse($auction->end_time);
+            $now = Carbon::now();
 
-            $duration = $endTime->diff(now());
+            $duration = $endTime->isPast() ? $endTime->diff($endTime) : $endTime->diff($now);
+
 
             $formattedDuration = $duration->format('%a Day, %H:%I:%S');
             $auction->formatted_duration = $formattedDuration;
 
             $photos = $auction->photos;
             $bids = $auction->bids;
+
+            if ($auction->end_time <= now()) {
+                $maxBid = $auction->bids()->max('amount');
+
+                if ($maxBid !== null && $maxBid >= $auction->start_price) {
+                    $winningBid = $auction->bids()->where('amount', $maxBid)->first();
+                    $auction->winnerId = $winningBid->id;
+                }
+            }
+
 
             $messages = Message::where('auction_id', $auction->id)->get();
 
@@ -128,6 +141,7 @@
                 'messages' => $messages,
             ]);
         }
+
 
 
 
@@ -170,5 +184,30 @@
         }
 
 
+        public function viewEditAuction(Auction $auction) {
 
+            return view('pages.editAuction', ['product'=> $auction]);
+        }
+
+
+
+        public function updateAuction(Request $request, Auction $auction)
+        {
+            $request->validate([
+                'title' => 'required',
+                'description' => 'required',
+                'start_price' => 'required|numeric',
+                'end_time' => 'required|date',
+            ]);
+
+            $auction->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'start_price' => $request->start_price,
+                'end_time' => $request->end_time,
+            ]);
+
+            return redirect()->route('product', ['auction' => $auction])
+                ->with('success', 'Auction updated successfully.');
+        }
     }

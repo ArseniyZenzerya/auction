@@ -19,7 +19,9 @@
                                     <h2>{{$auction->title}}</h2>
                                 </div>
                                 <div class="img-box">
+                                    @if(isset($auction->photos[0]->url))
                                     <img src="{{ asset('storage/' . $auction->photos[0]->url) }}" class="img-box__img">
+                                    @endif
                                 </div>
                                 <div class="content">
                                     <h3 class="title">{{$auction->start_price}} UAH</h3>

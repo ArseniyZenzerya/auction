@@ -35,6 +35,8 @@
     Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
     Route::post('/chat/{auction:id}', [ChatController::class, 'store'])->name('chat.store');
 
-    Route::post('/edit/{auction:id}', [AuctionController::class, 'editAuction'])->name('edit.auction');
+    Route::get('/edit/{auction:id}', [AuctionController::class, 'viewEditAuction'])->name('view.edit.auction');
+    Route::put('api/edit/{auction:id}', [AuctionController::class, 'updateAuction'])->name('edit.auction');
+
 
     Route::get('/', [AuctionController::class, 'getAllNotExpired'])->name('index');
