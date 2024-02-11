@@ -1,66 +1,58 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Team “Slayers”
 
-## About Laravel
+## Auction “Search a lot”
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Research
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+In our journey to create an online auction, our team meticulously examined the user flows of three prominent auction marketplaces: eBay, Copart, and Violity UA. Through this analysis, we gained valuable insights into how these platforms organize their flows, and drive successful auctions.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+We invite you to explore the results of our research through the attached link, where you'll find a comprehensive overview of our findings.
 
-## Learning Laravel
+Based on our thorough research, we have crafted our own solution. You can explore its description below.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+[Figma link](https://www.figma.com/file/Chvd54PzZsuqDwAzgEzaTu/Research?type=whiteboard&node-id=0-1&t=Heyk3t2ctYrkQY4x-0)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Functionality description
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Main page:
 
-## Laravel Sponsors
+Unauthorized users can browse all auctions and view detailed item descriptions and bidding histories.
+Various sorting and filtering options are available to streamline the user experience.
+Registration on "Search a Lot" is required to participate in auctions.
+Users have the option to comment on auctions, facilitating the sharing of opinions.
+Users can track their bidding status until the auction concludes.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Login and registration
 
-### Premium Partners
+Users can effortlessly log in to their seller's or customer's profile or create a new one for seamless access to auction features.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Seller profile:
 
-## Contributing
+Once logged in, users can effortlessly switch between seller or customer modes within their profile.
+The seller profile empowers users to create new auctions and manage their existing ones, including viewing active, waiting for payment, and completed auctions.
+Users retain the flexibility to edit their auctions even after creation, ensuring they can make necessary adjustments as needed.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Customer profile:
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Within the customer profile, users can conveniently access and view all auctions in which they are participating.
+Clear indicators ensure customers can easily discern the auctions they're actively involved in.
+Upon winning an auction, customers can seamlessly proceed to payment directly from their profile interface.
+Auctions won are distinctly highlighted with the "Waiting for payment" status, facilitating quick and efficient transaction completion.
 
-## Security Vulnerabilities
+Feel free to explore all the mockups through the provided [link](https://www.figma.com/file/a2LKOzhD6kwBJJOg6tEeNn/Test-task---Main-File?type=design&mode=design&t=MhBUtG1DcxAyBKLj-0).
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+## How to start?
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- git clone
+- composer install
+- Create DataBase
+- Change .env
+- php artisan key:generate
+- php artisan migrate
+- php artisan storage:link
+
+
