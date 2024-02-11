@@ -1,26 +1,28 @@
-<header class="container header">
+<header class="header">
 
-    <img src="" alt="" class="logo">
+    <div class="header-wrap">
+        <img src="" alt="" class="logo">
 
-    <input class='input-search' name="input" type="text" placeholder="Search an item?"/>
+        <input class='input-search' name="input" type="text" placeholder="Search an item?"/>
 
-    <div class="right-menu">
-        @auth('web')
+        <div class="right-menu">
+            @auth('web')
 
-        <a href="{{route('viewCreateFirstStep')}}">
-            <div class="button">Create auction</div>
-        </a>
-            <a href="{{route('api.logout')}}">
-                <div>Logout</div>
-            </a>
-            <div class="profile-button"><img src="{{asset('/images/logo.svg')}}" alt=""></div>
+                <a href="{{route('viewCreateFirstStep')}}">
+                    <div class="button">Create auction</div>
+                </a>
+                <a href="{{route('api.logout')}}">
+                    <div>Logout</div>
+                </a>
+                <div class="profile-button"><img src="{{asset('/images/logo.svg')}}" alt=""></div>
 
-        @endauth
-        @guest('web')
-            <a href="{{route('login')}}">
-                <div class="button">Log In</div>
-            </a>
-         @endguest
+            @endauth
+            @guest('web')
+                <a href="{{route('login')}}">
+                    <div class="button">Log In</div>
+                </a>
+            @endguest
+        </div>
     </div>
 
 
@@ -69,5 +71,13 @@
 
     .right-menu {
         display: flex;
+    }
+
+    .header-wrap{
+        display: flex;
+        width: 100%;
+        padding-left: var(--offset);
+        padding-right: var(--offset);
+        justify-content: space-between;
     }
 </style>
